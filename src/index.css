@@ -1,0 +1,204 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* White & Black Theme */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Black - Primary */
+    --primary: 0 0% 10%;
+    --primary-foreground: 0 0% 100%;
+    --primary-light: 0 0% 25%;
+    
+    /* Gray - Secondary */
+    --secondary: 0 0% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --secondary-light: 0 0% 60%;
+
+    /* Dark Gray - Accent */
+    --accent: 0 0% 20%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Light Gray - Nature */
+    --nature: 0 0% 85%;
+    --nature-foreground: 0 0% 10%;
+
+    /* Off White */
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 0 0% 10%;
+
+    --radius: 1rem;
+    
+    /* Custom gradients */
+    --gradient-nature: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 25%));
+    --gradient-sky: linear-gradient(135deg, hsl(0 0% 40%), hsl(0 0% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 10% / 0.95), hsl(0 0% 20% / 0.95));
+    --gradient-earth: linear-gradient(180deg, hsl(0 0% 100%), hsl(0 0% 95%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(0 0% 10% / 0.1);
+    --shadow-card: 0 8px 32px -8px hsl(0 0% 10% / 0.15);
+    --shadow-hover: 0 12px 40px -10px hsl(0 0% 10% / 0.25);
+    
+    /* Transitions */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 10%;
+    --foreground: 0 0% 95%;
+
+    --card: 0 0% 15%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 0 0% 15%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 10%;
+
+    --secondary: 0 0% 60%;
+    --secondary-foreground: 0 0% 10%;
+
+    --muted: 0 0% 20%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 0 0% 85%;
+    --accent-foreground: 0 0% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 25%;
+    --input: 0 0% 25%;
+    --ring: 0 0% 100%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .gradient-nature {
+    background: var(--gradient-nature);
+  }
+  
+  .gradient-sky {
+    background: var(--gradient-sky);
+  }
+  
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .gradient-earth {
+    background: var(--gradient-earth);
+  }
+  
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+  
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+  
+  .transition-smooth {
+    transition: var(--transition-smooth);
+  }
+  
+  .transition-bounce {
+    transition: var(--transition-bounce);
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .leaf-pattern {
+    background-image: radial-gradient(circle at 20% 50%, hsl(0 0% 90% / 0.3) 0%, transparent 50%),
+                      radial-gradient(circle at 80% 80%, hsl(0 0% 85% / 0.3) 0%, transparent 50%);
+  }
+}
